@@ -9,7 +9,8 @@ const Login: React.FC = (props: any) => {
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    //認証が変わるたびにログイン、ログアウトが呼び出される user=>認証情報が入っている
+    //認証が変わるたびにログイン、ログアウトが呼び出される user=> ログイン情報取得に成功したときに認証情報が入っているパラメーター
+    //新しくユーザーがログインしようとした、ログアウトしようとしたなど、その時に毎回呼ばれるメソッド=>onAuthStateChanged
     const unSub = auth.onAuthStateChanged((user) => {
       user && props.history.push("/"); //何らかのuserが存在している時history.push！
     });
